@@ -25,55 +25,25 @@ namespace Ver1._0
             Text = name;
             mainTables = File.ReadAllLines(Path.Combine(@"System\NewTabs", Text + ".txt")).ToList();
             optionTables = File.ReadAllLines(Path.Combine(@"System\NewOptionTabs", Text + ".txt")).ToList();
-
-            dataGridView1.DataSource = DataTable(mainTables);
-        
+            
         }
 
-        public DataTable DataTable (List<string> list)
+        private void MainWindow_SizeChanged(object sender, EventArgs e)
         {
-            string[] mainColumnsName = 
-            {"Дата изготовления", 
-             "Наименование изделия", 
-             "Код изделия", 
-             "Цех", 
-             "Класс бетона",
-             "Марка бетона",
-             "№ состава",
-             "a",
-             "b",
-             "c",
-             "Допустимая отпускная прочность"
-            };
-
-            string[] optionColumnsName =
+            foreach (DataGridView dgv in Controls.OfType<DataGridView>())
             {
-                "Дата",
-                "Вес",
-                "Прочность",
-                "Средняя прочность",
-                "%"
-            };
-
-            List<string[]> columnsName = new List<string[]>();
-
-            DataTable dt = new DataTable();
-
-            if(list.GetHashCode() == mainTables.GetHashCode())
-            {
-               foreach(string s in mainColumnsName)
+                if (dgv.GetHashCode() == dataGridView1.GetHashCode())
                 {
-                    dt.Columns.Add(s);
+                    dgv.Width = (Width / 2)-45;
+                    dgv.Location = new Point(12, 36);
+                }
+                else
+                {
+                    dgv.Width = Width / 2;
+                    dgv.Location = new Point((Width / 2)-25, 36);
                 }
             }
-            else
-            {
-                foreach (string s in optionColumnsName)
-                {
-                    dt.Columns.Add(s);
-                }
-            }
-            return dt;
+            
         }
     }
 }
