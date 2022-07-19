@@ -45,5 +45,24 @@ namespace Ver1._0
             }
             
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AddInfo ai = new AddInfo(this);
+            ai.ShowDialog();
+        }
+        
+        public void setInfo (List<string> massA)
+        {
+            dataGridView1.Rows.Add(massA.ToArray());
+        }
+        public void setInfo(List<string> massA, List<string> massB)
+        {
+            dataGridView1.Rows.Add(massA.ToArray());
+            dataGridView2.Rows.Add(massB.ToArray());
+        }
+    
+    
+    
     }
 }
