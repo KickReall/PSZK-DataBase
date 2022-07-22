@@ -14,6 +14,7 @@ namespace Ver1._0
     {
         List<string> mainTables = new List<string>();
         List<string> optionTables = new List<string>();
+       
         public MainWindow(string name)
         {
             InitializeComponent();
@@ -25,7 +26,18 @@ namespace Ver1._0
             Text = name;
             mainTables = File.ReadAllLines(Path.Combine(@"System\NewTabs", Text + ".txt")).ToList();
             optionTables = File.ReadAllLines(Path.Combine(@"System\NewOptionTabs", Text + ".txt")).ToList();
-            
+
+            updateMainTables();
+
+        }
+
+        public void updateMainTables()
+        {
+            dataGridView1.Rows.Clear();
+            foreach (string s in mainTables)
+            {
+                dataGridView1.Rows.Add(s.Split(";"));
+            }
         }
 
         private void MainWindow_SizeChanged(object sender, EventArgs e)
@@ -52,17 +64,14 @@ namespace Ver1._0
             ai.ShowDialog();
         }
         
-        public void setInfo (List<string> massA)
+        public void setInfo(string s, string s2, string s3)
         {
-            dataGridView1.Rows.Add(massA.ToArray());
+            mainTables.Add(s);
+            optionTables.Add(s2);
+            optionTables.Add(s3);
+            updateMainTables();
         }
-        public void setInfo(List<string> massA, List<string> massB)
-        {
-            dataGridView1.Rows.Add(massA.ToArray());
-            dataGridView2.Rows.Add(massB.ToArray());
-        }
-    
-    
-    
+
+
     }
 }
