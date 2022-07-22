@@ -269,6 +269,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 23);
             this.comboBox1.TabIndex = 12;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // comboBox2
             // 
@@ -277,6 +278,7 @@
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 23);
             this.comboBox2.TabIndex = 13;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // comboBox3
             // 
@@ -293,6 +295,7 @@
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(121, 23);
             this.comboBox4.TabIndex = 15;
+            this.comboBox4.SelectedIndexChanged += new System.EventHandler(this.comboBoxes);
             // 
             // comboBox5
             // 
@@ -301,6 +304,7 @@
             this.comboBox5.Name = "comboBox5";
             this.comboBox5.Size = new System.Drawing.Size(121, 23);
             this.comboBox5.TabIndex = 16;
+            this.comboBox5.SelectedIndexChanged += new System.EventHandler(this.comboBoxes);
             // 
             // comboBox6
             // 
@@ -338,6 +342,7 @@
             this.comboBox7.Name = "comboBox7";
             this.comboBox7.Size = new System.Drawing.Size(121, 23);
             this.comboBox7.TabIndex = 21;
+            this.comboBox7.SelectedIndexChanged += new System.EventHandler(this.comboBoxes);
             // 
             // groupBox3
             // 
@@ -404,7 +409,7 @@
             this.checkBox2.TabIndex = 1;
             this.checkBox2.Text = "№2";
             this.checkBox2.UseVisualStyleBackColor = true;
-            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged_1);
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBoxes);
             // 
             // checkBox1
             // 
@@ -415,7 +420,7 @@
             this.checkBox1.TabIndex = 0;
             this.checkBox1.Text = "№1";
             this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged_1);
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBoxes);
             // 
             // groupBox5
             // 
@@ -503,10 +508,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(655, 355);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.button1);
             this.Name = "AddInfo";
             this.Text = "Добавление записи";
